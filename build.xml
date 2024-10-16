@@ -80,11 +80,16 @@
 			<class name="de.parsemis.miner.environment.LocalEnvironment"/>
 		</javah>
 
-		<exec dir="${headdir}" executable="${CC}">
-			<arg line="-o ${libdir}/libjava-time.so -O
-			-shared -fPIC -I${JAVA_INCLUDE}
-			-I${JAVA_INCLUDE}/linux -I${headdir}
-			${srcdir}/de/parsemis/miner/environment/LocalEnvironment.c" />
+		<exec dir="${headdir}" executable="${CC}" failonerror="true">
+			<arg value="-I/usr/lib/jvm/java-8-openjdk-amd64/include"/>
+			<arg value="-I/usr/lib/jvm/java-8-openjdk-amd64/include/linux"/>
+			<arg value="-o"/>
+			<arg value="${libdir}/libjava-time.so"/>
+			<arg value="-O"/>
+			<arg value="-shared"/>
+			<arg value="-fPIC"/>
+			<arg value="-I${headdir}"/>
+			<arg value="${srcdir}/de/parsemis/miner/environment/LocalEnvironment.c"/>
 		</exec>
 	</target>
 
